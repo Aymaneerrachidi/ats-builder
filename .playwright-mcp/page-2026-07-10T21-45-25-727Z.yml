@@ -1,0 +1,381 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "A/R ATS Resume AI" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e6]: A/R
+          - generic [ref=e7]: ATS Resume AI
+        - navigation [ref=e8]:
+          - link "How it works" [ref=e9] [cursor=pointer]:
+            - /url: "#how"
+          - link "Features" [ref=e10] [cursor=pointer]:
+            - /url: "#features"
+          - link "Templates" [ref=e11] [cursor=pointer]:
+            - /url: "#templates"
+          - link "Pricing" [ref=e12] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "FAQ" [ref=e13] [cursor=pointer]:
+            - /url: "#faq"
+        - generic [ref=e14]:
+          - button "Toggle theme" [ref=e15]
+          - button "Sign in" [ref=e16] [cursor=pointer]
+          - button "Get started" [ref=e17] [cursor=pointer]
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic: §
+        - generic: \
+        - generic: "{"
+        - generic: ¶
+        - generic: "}"
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - generic [ref=e22]: LaTeX-typeset · AI-structured · ATS-safe
+            - heading "Your career, typeset to perfection." [level=1] [ref=e24]:
+              - generic [ref=e25]: Your
+              - generic [ref=e27]: career,
+              - generic [ref=e29]: typeset
+              - generic [ref=e31]: to
+              - generic [ref=e33]: perfection.
+            - paragraph [ref=e35]: Paste your LinkedIn export or an old resume. Our AI restructures the content — a real LaTeX engine typesets it into a document that sails through applicant tracking systems.
+            - generic [ref=e36]:
+              - button "Build my resume" [ref=e37] [cursor=pointer]
+              - button "See how it works" [ref=e38] [cursor=pointer]
+            - paragraph [ref=e39]: No scraping · No fabricated experience · Real .tex source included
+          - generic [ref=e40]:
+            - img [ref=e42]:
+              - generic [ref=e43]: Typeset with LaTeX · ATS-Safe · Est. 2026 ·
+              - generic [ref=e45]: A/R
+            - generic [ref=e49]:
+              - generic [ref=e53]: "94"
+              - generic [ref=e54]: ATS Score
+            - generic [ref=e55]:
+              - generic [ref=e56]: resume.tex
+              - generic [ref=e62]:
+                - generic [ref=e63]: "\\documentclass{resume}"
+                - generic [ref=e65]: "\\name{Jane Doe}"
+                - generic [ref=e67]: "\\role{Staff Engineer}"
+                - generic [ref=e69]: "\\section{Experience}"
+                - generic [ref=e71]: "\\bullet{Led team of 5…}"
+                - generic [ref=e73]: \compile ✓
+                - text: ▌
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - text: LaTeX Typeset
+            - generic [ref=e79]: ✳
+          - generic [ref=e80]:
+            - text: ATS-Safe
+            - generic [ref=e81]: ✳
+          - generic [ref=e82]:
+            - text: Six Templates
+            - generic [ref=e83]: ✳
+          - generic [ref=e84]:
+            - text: One-Page Lock
+            - generic [ref=e85]: ✳
+          - generic [ref=e86]:
+            - text: Job Tailoring
+            - generic [ref=e87]: ✳
+          - generic [ref=e88]:
+            - text: AI Restructuring
+            - generic [ref=e89]: ✳
+          - generic [ref=e90]:
+            - text: Arabic & RTL
+            - generic [ref=e91]: ✳
+          - generic [ref=e92]:
+            - text: .tex Source Included
+            - generic [ref=e93]: ✳
+          - generic [ref=e94]:
+            - text: Version History
+            - generic [ref=e95]: ✳
+          - generic [ref=e96]:
+            - text: No Scraping
+            - generic [ref=e97]: ✳
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - text: LaTeX Typeset
+            - generic [ref=e100]: ✳
+          - generic [ref=e101]:
+            - text: ATS-Safe
+            - generic [ref=e102]: ✳
+          - generic [ref=e103]:
+            - text: Six Templates
+            - generic [ref=e104]: ✳
+          - generic [ref=e105]:
+            - text: One-Page Lock
+            - generic [ref=e106]: ✳
+          - generic [ref=e107]:
+            - text: Job Tailoring
+            - generic [ref=e108]: ✳
+          - generic [ref=e109]:
+            - text: AI Restructuring
+            - generic [ref=e110]: ✳
+          - generic [ref=e111]:
+            - text: Arabic & RTL
+            - generic [ref=e112]: ✳
+          - generic [ref=e113]:
+            - text: .tex Source Included
+            - generic [ref=e114]: ✳
+          - generic [ref=e115]:
+            - text: Version History
+            - generic [ref=e116]: ✳
+          - generic [ref=e117]:
+            - text: No Scraping
+            - generic [ref=e118]: ✳
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]: — § How it works
+          - heading [level=2] [ref=e124]:
+            - text: From messy paste to
+            - emphasis [ref=e125]: printed page
+            - text: in three moves.
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: "01"
+            - heading "Import anything" [level=3] [ref=e135]
+            - paragraph [ref=e136]: LinkedIn PDF export, an old resume, or raw pasted text. The AI extracts every job, date, and skill into clean structured fields — nothing invented, nothing lost.
+          - generic [ref=e138]:
+            - generic [ref=e139]: "02"
+            - heading "Refine with AI" [level=3] [ref=e144]
+            - paragraph [ref=e145]: "Ten one-click enhancements: sharpen the summary, rewrite bullets with action verbs, add metric placeholders, shift tone. Every change stays fully editable."
+          - generic [ref=e147]:
+            - generic [ref=e148]: "03"
+            - heading "Typeset & ship" [level=3] [ref=e154]
+            - paragraph [ref=e155]: A real LaTeX engine compiles your resume — the same typesetting system behind academic journals. Download the PDF, the .tex source, or the raw JSON.
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - generic [ref=e159]: — § What you get
+          - heading [level=2] [ref=e161]:
+            - text: Built like a
+            - emphasis [ref=e162]: printing press
+            - text: ", not a website builder."
+        - generic [ref=e163]:
+          - generic [ref=e165]:
+            - heading "AI restructuring" [level=3] [ref=e170]
+            - paragraph [ref=e171]: Paste raw profile text, upload a PDF, or type manually — the AI restructures everything into clean, structured fields. Never raw LaTeX, never guesswork.
+          - generic [ref=e173]:
+            - heading "Real LaTeX typesetting" [level=3] [ref=e178]
+            - paragraph [ref=e179]: Every resume compiles through an actual XeLaTeX engine on the server — the typesetting system behind academic papers, not a CSS-to-PDF hack.
+          - generic [ref=e181]:
+            - heading "ATS score & audit" [level=3] [ref=e186]
+            - paragraph [ref=e187]: "A 0–100 score with concrete fixes: weak verbs, passive voice, keyword density, formatting risks, and contact-info gaps."
+          - generic [ref=e189]:
+            - heading "Job tailoring" [level=3] [ref=e195]
+            - paragraph [ref=e196]: Paste a job description and see exactly which keywords you're missing — with existing bullets rewritten to surface real, already-true experience.
+          - generic [ref=e198]:
+            - heading "Six ATS-safe templates" [level=3] [ref=e204]
+            - paragraph [ref=e205]: Classic, Modern, Minimal, Tech, Academic, Executive — single-column, no tables, no icons, no parsing traps.
+          - generic [ref=e207]:
+            - heading "Version history" [level=3] [ref=e213]
+            - paragraph [ref=e214]: Every save is recoverable. Duplicate, rename, and roll back to any previous version of a resume without losing work.
+      - generic [ref=e216]:
+        - generic [ref=e217]:
+          - generic [ref=e218]: — § Templates
+          - heading [level=2] [ref=e220]:
+            - text: Six layouts. Zero
+            - emphasis [ref=e221]: parsing traps
+            - text: .
+          - paragraph [ref=e223]: Single-column, no tables, no icons, no text boxes — every template is engineered to be read correctly by both humans and applicant tracking systems.
+        - generic [ref=e224]:
+          - generic [ref=e226]:
+            - generic [ref=e241]:
+              - heading "Classic" [level=3] [ref=e242]
+              - generic [ref=e243]: .tex
+            - paragraph [ref=e244]: Small-caps rules, serif body — timeless and dependable.
+          - generic [ref=e246]:
+            - generic [ref=e261]:
+              - heading "Modern" [level=3] [ref=e262]
+              - generic [ref=e263]: .tex
+            - paragraph [ref=e264]: Sans-serif with a confident color rule under each section.
+          - generic [ref=e266]:
+            - generic [ref=e281]:
+              - heading "Minimal" [level=3] [ref=e282]
+              - generic [ref=e283]: .tex
+            - paragraph [ref=e284]: No rules, no color — just dense, efficient information.
+          - generic [ref=e286]:
+            - generic [ref=e304]:
+              - heading "Tech" [level=3] [ref=e305]
+              - generic [ref=e306]: .tex
+            - paragraph [ref=e307]: Monospace skill tags for engineering and technical roles.
+          - generic [ref=e309]:
+            - generic [ref=e324]:
+              - heading "Academic" [level=3] [ref=e325]
+              - generic [ref=e326]: .tex
+            - paragraph [ref=e327]: Education-first ordering for research and academic CVs.
+          - generic [ref=e329]:
+            - generic [ref=e344]:
+              - heading "Executive" [level=3] [ref=e345]
+              - generic [ref=e346]: .tex
+            - paragraph [ref=e347]: Centered header, generous whitespace, refined double rule.
+      - generic [ref=e349]:
+        - generic [ref=e350]:
+          - generic [ref=e351]: — § Pricing
+          - heading [level=2] [ref=e353]:
+            - text: Honest pricing,
+            - emphasis [ref=e354]: no dark patterns
+            - text: .
+        - generic [ref=e355]:
+          - generic [ref=e357]:
+            - heading "Free" [level=3] [ref=e358]
+            - paragraph [ref=e359]: Try the full pipeline on one resume.
+            - generic [ref=e360]:
+              - generic [ref=e361]: $0
+              - generic [ref=e362]: forever
+            - list [ref=e363]:
+              - listitem [ref=e364]:
+                - generic [ref=e367]: 1 active resume
+              - listitem [ref=e368]:
+                - generic [ref=e371]: All 6 templates
+              - listitem [ref=e372]:
+                - generic [ref=e375]: AI extraction & enhancement
+              - listitem [ref=e376]:
+                - generic [ref=e379]: ATS score reports
+              - listitem [ref=e380]:
+                - generic [ref=e383]: PDF & TEX export
+            - button "Start free" [ref=e384] [cursor=pointer]
+          - generic [ref=e386]:
+            - generic [ref=e387]: Most popular
+            - heading "Pro" [level=3] [ref=e388]
+            - paragraph [ref=e389]: For an active job search.
+            - generic [ref=e390]:
+              - generic [ref=e391]: $12
+              - generic [ref=e392]: / month
+            - list [ref=e393]:
+              - listitem [ref=e394]:
+                - generic [ref=e397]: Unlimited resumes
+              - listitem [ref=e398]:
+                - generic [ref=e401]: Unlimited AI enhancements
+              - listitem [ref=e402]:
+                - generic [ref=e405]: Job tailoring & keyword match
+              - listitem [ref=e406]:
+                - generic [ref=e409]: Version history & restore
+              - listitem [ref=e410]:
+                - generic [ref=e413]: One-page lock & priority compile
+            - button "Get Pro" [ref=e414] [cursor=pointer]
+          - generic [ref=e416]:
+            - heading "Teams" [level=3] [ref=e417]
+            - paragraph [ref=e418]: For career coaches & bootcamps.
+            - generic [ref=e419]:
+              - generic [ref=e420]: $39
+              - generic [ref=e421]: / month
+            - list [ref=e422]:
+              - listitem [ref=e423]:
+                - generic [ref=e426]: Everything in Pro
+              - listitem [ref=e427]:
+                - generic [ref=e430]: 5 seats included
+              - listitem [ref=e431]:
+                - generic [ref=e434]: Shared template library
+              - listitem [ref=e435]:
+                - generic [ref=e438]: Usage analytics per seat
+              - listitem [ref=e439]:
+                - generic [ref=e442]: Priority support
+            - button "Talk to us" [ref=e443] [cursor=pointer]
+        - paragraph [ref=e446]: Cancel anytime · Your data exports with you · No credit card for Free
+      - generic [ref=e448]:
+        - generic [ref=e449]:
+          - generic [ref=e450]: — § Letters to the editor
+          - paragraph [ref=e452]: (Placeholder testimonials — swap in real quotes before launch.)
+        - generic [ref=e453]:
+          - figure "Placeholder Name Placeholder Role, Company" [ref=e455]:
+            - generic [ref=e456]: “
+            - blockquote [ref=e457]: Rewrote my entire resume from a messy LinkedIn PDF in about two minutes. The ATS score caught passive voice I'd never have noticed.
+            - generic [ref=e458]:
+              - text: Placeholder Name
+              - generic [ref=e459]: Placeholder Role, Company
+          - figure "Placeholder Name Placeholder Role, Company" [ref=e461]:
+            - generic [ref=e462]: “
+            - blockquote [ref=e463]: The job-tailoring feature told me exactly which keywords I was missing instead of just inventing skills for me. Felt honest.
+            - generic [ref=e464]:
+              - text: Placeholder Name
+              - generic [ref=e465]: Placeholder Role, Company
+          - figure "Placeholder Name Placeholder Role, Company" [ref=e467]:
+            - generic [ref=e468]: “
+            - blockquote [ref=e469]: It's the first resume builder where the PDF actually looks like it was typeset, not exported from a template editor.
+            - generic [ref=e470]:
+              - text: Placeholder Name
+              - generic [ref=e471]: Placeholder Role, Company
+      - generic [ref=e474]:
+        - generic [ref=e475]: — § FAQ
+        - heading [level=2] [ref=e477]:
+          - text: Questions,
+          - emphasis [ref=e478]: answered
+          - text: .
+        - generic [ref=e480]:
+          - heading [level=3] [ref=e482]:
+            - button "01 Can I import directly from a LinkedIn URL?" [ref=e483]:
+              - generic [ref=e484]:
+                - generic [ref=e485]: "01"
+                - text: Can I import directly from a LinkedIn URL?
+          - heading [level=3] [ref=e487]:
+            - button "02 Will the AI invent experience I don't have?" [ref=e488]:
+              - generic [ref=e489]:
+                - generic [ref=e490]: "02"
+                - text: Will the AI invent experience I don't have?
+          - heading [level=3] [ref=e492]:
+            - button "03 Why LaTeX instead of a normal PDF export?" [ref=e493]:
+              - generic [ref=e494]:
+                - generic [ref=e495]: "03"
+                - text: Why LaTeX instead of a normal PDF export?
+          - heading [level=3] [ref=e497]:
+            - button "04 What does the one-page lock do?" [ref=e498]:
+              - generic [ref=e499]:
+                - generic [ref=e500]: "04"
+                - text: What does the one-page lock do?
+          - heading [level=3] [ref=e502]:
+            - button "05 What happens if a PDF fails to compile?" [ref=e503]:
+              - generic [ref=e504]:
+                - generic [ref=e505]: "05"
+                - text: What happens if a PDF fails to compile?
+          - heading [level=3] [ref=e507]:
+            - button "06 Can I keep older versions of a resume?" [ref=e508]:
+              - generic [ref=e509]:
+                - generic [ref=e510]: "06"
+                - text: Can I keep older versions of a resume?
+      - generic [ref=e511]:
+        - generic: ¶
+        - generic [ref=e513]:
+          - generic [ref=e514]: Final proof · Approved
+          - heading [level=2] [ref=e517]:
+            - text: Stop fighting
+            - emphasis [ref=e518]: margins
+            - text: .Start typesetting your career.
+          - paragraph [ref=e520]: Free to try. No credit card. Your first resume compiles in under a minute.
+          - button "Build my resume" [ref=e522] [cursor=pointer]
+    - contentinfo [ref=e523]:
+      - generic [ref=e524]:
+        - generic [ref=e525]:
+          - generic [ref=e526]:
+            - generic [ref=e527]: A/R
+            - generic [ref=e528]: ATS Resume AI
+          - paragraph [ref=e529]: AI-structured, LaTeX-typeset resumes that clear applicant tracking systems. Built for job seekers, not scrapers.
+        - generic [ref=e530]:
+          - heading "Product" [level=3] [ref=e531]
+          - list [ref=e532]:
+            - listitem [ref=e533]:
+              - link "How it works" [ref=e534] [cursor=pointer]:
+                - /url: "#how"
+            - listitem [ref=e535]:
+              - link "Templates" [ref=e536] [cursor=pointer]:
+                - /url: "#templates"
+            - listitem [ref=e537]:
+              - link "Pricing" [ref=e538] [cursor=pointer]:
+                - /url: "#pricing"
+            - listitem [ref=e539]:
+              - link "FAQ" [ref=e540] [cursor=pointer]:
+                - /url: "#faq"
+        - generic [ref=e541]:
+          - heading "Account" [level=3] [ref=e542]
+          - list [ref=e543]:
+            - listitem [ref=e544]:
+              - link "Sign in" [ref=e545] [cursor=pointer]:
+                - /url: /sign-in
+            - listitem [ref=e546]:
+              - link "Sign up" [ref=e547] [cursor=pointer]:
+                - /url: /sign-up
+            - listitem [ref=e548]:
+              - link "Dashboard" [ref=e549] [cursor=pointer]:
+                - /url: /dashboard
+      - generic [ref=e551]:
+        - paragraph [ref=e552]: © 2026 ATS Resume AI
+        - paragraph [ref=e553]: Set in Fraunces & Plus Jakarta Sans · Compiled with XeLaTeX ✳
+  - region "Notifications alt+T"

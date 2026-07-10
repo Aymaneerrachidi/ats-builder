@@ -1,0 +1,88 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+{{#if hasArabic}}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Path={{fontsDir}},Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,Script=Arabic]{Amiri}
+{{/if}}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.05em, itemsep=0pt, topsep=1pt, parsep=0pt}
+
+\titleformat{\section}{\normalsize\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{8pt}{3pt}
+
+{{#if isCompressed}}
+{{compressionPreamble}}
+{{/if}}
+
+\begin{document}
+
+% Header
+{\large \relax{}{{name}}\relax{}}{{#if title}} -- {{title}}{{/if}}\\
+{{email}}{{#if phone}}, {{phone}}{{/if}}{{#if location}}, {{location}}{{/if}}{{#if hasLinks}}, {{#each links}}{{href}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}
+
+\vspace{6pt}
+
+{{#if hasSummary}}
+\section*{Summary}
+{{summary}}
+{{/if}}
+
+{{#if hasExperience}}
+\section*{Experience}
+{{#each experience}}
+\textbf{\relax{}{{position}}\relax{}}, {{company}} ({{dates}})\\
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasEducation}}
+\section*{Education}
+{{#each education}}
+{{degree}}{{#if hasField}} in {{field}}{{/if}}, {{institution}} ({{dates}}){{#if hasGpa}}, GPA {{gpa}}{{/if}}\\
+{{/each}}
+{{/if}}
+
+{{#if hasProjects}}
+\section*{Projects}
+{{#each projects}}
+{{#if hasUrl}}{{href}}{{else}}{{name}}{{/if}}{{#if hasTechnologies}} ({{technologies}}){{/if}}{{#if hasDescription}}: {{description}}{{/if}}\\
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasSkills}}
+\section*{Skills}
+{{#each skills}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+{{#if hasCertifications}}
+\section*{Certifications}
+{{#each certifications}}{{#if hasUrl}}{{href}}{{else}}{{name}}{{/if}}{{#if hasIssuer}}, {{issuer}}{{/if}}{{#if hasDate}}, {{date}}{{/if}}{{#unless @last}}; {{/unless}}{{/each}}
+{{/if}}
+
+{{#if hasLanguages}}
+\section*{Languages}
+{{#each languages}}{{name}}{{#if hasProficiency}} ({{proficiency}}){{/if}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+\end{document}

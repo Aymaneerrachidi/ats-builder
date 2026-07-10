@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// Auth (Better Auth) — managed by Better Auth's
+// Prisma adapter. Regenerate with
+// `npx @better-auth/cli generate` after changing
+// auth plugins/config in src/lib/auth.ts.
+// ─────────────────────────────────────────────
+
+model User {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  emailVerified Boolean  @default(false)
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  sessions Session[]
+  accounts Account[]
+  resumes  Resume[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("account")
+  @@index([userId])
+}
+
+model Verification {
+  id         String    @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  @@map("verification")
+  @@index([identifier])
+}
+
+// ─────────────────────────────────────────────
+// Resume domain
+// ─────────────────────────────────────────────
+
+enum ResumeTemplate {
+  classic
+  modern
+  minimal
+  tech
+  academic
+  executive
+}
+
+model Resume {
+  id        String         @id @default(cuid())
+  userId    String
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String         @default("Untitled Resume")
+  template  ResumeTemplate @default(classic)
+  /// When true, compilation locks output to a single page — see
+  /// src/lib/latex/page-fit.ts — by progressively tightening layout and,
+  /// if that's not enough, letting the user shorten content.
+  onePage   Boolean        @default(false)
+  /// Structured resume JSON — see src/types/resume.ts for the shape.
+  content   Json
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  versions      ResumeVersion[]
+  jobTailorings JobTailoring[]
+
+  @@index([userId])
+}
+
+model ResumeVersion {
+  id        String         @id @default(cuid())
+  resumeId  String
+  resume    Resume         @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  template  ResumeTemplate
+  content   Json
+  label     String?
+  createdAt DateTime       @default(now())
+
+  @@index([resumeId])
+}
+
+model JobTailoring {
+  id                String   @id @default(cuid())
+  resumeId          String
+  resume            Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  jobDescription    String
+  extractedKeywords Json
+  missingKeywords   Json
+  suggestions       Json
+  createdAt         DateTime @default(now())
+
+  @@index([resumeId])
+}
