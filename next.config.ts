@@ -18,10 +18,16 @@ const nextConfig: NextConfig = {
   // dependency package (@napi-rs/canvas-<platform>), not inside
   // @napi-rs/canvas itself — Vercel's Node.js functions run on
   // linux-x64-gnu, so that's the one that must be included.
+  // pdfjs-dist also dynamically `import()`s its own "fake worker" script
+  // (legacy/build/pdf.worker.mjs, used to simulate a Worker on the main
+  // thread in Node) — same untraceable-dynamic-import problem, so it's
+  // force-included too ("Setting up fake worker failed: Cannot find
+  // module ... pdf.worker.mjs" otherwise).
   outputFileTracingIncludes: {
     "/api/upload/**": [
       "./node_modules/@napi-rs/canvas/**",
       "./node_modules/@napi-rs/canvas-linux-x64-gnu/**",
+      "./node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs",
     ],
   },
 };
