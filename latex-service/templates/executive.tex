@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+{{#if hasArabic}}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Path={{fontsDir}},Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,Script=Arabic]{Amiri}
+{{/if}}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt, topsep=3pt, parsep=0pt}
+
+\titleformat{\section}{\centering\large\scshape\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{14pt}{8pt}
+
+\newcommand{\executiverule}{\noindent\rule{\linewidth}{0.6pt}\\[1pt]\rule{\linewidth}{0.3pt}}
+
+{{#if isCompressed}}
+{{compressionPreamble}}
+{{/if}}
+
+\begin{document}
+
+% Header
+\begin{center}
+  {\Huge \relax{}{{name}}\relax{}}\\[4pt]
+  {{#if title}}{\Large\itshape \relax{}{{title}}\relax{}}\\[6pt]
+  {{/if}}
+  \executiverule\\[4pt]
+  {{email}}{{#if phone}} \quad {{phone}}{{/if}}{{#if location}} \quad {{location}}{{/if}}
+  {{#if hasLinks}}\\[2pt]
+  {{#each links}}{{href}}{{#unless @last}} \quad {{/unless}}{{/each}}
+  {{/if}}
+\end{center}
+
+\vspace{8pt}
+
+{{#if hasSummary}}
+\section*{Executive Summary}
+\begin{center}
+\parbox{0.92\linewidth}{\centering \relax{}{{summary}}\relax{}}
+\end{center}
+{{/if}}
+
+{{#if hasExperience}}
+\section*{Leadership Experience}
+{{#each experience}}
+\textbf{\relax{}{{position}}\relax{}} -- {{company}} \hfill \textit{\relax{}{{dates}}\relax{}}\\
+{{#if hasLocation}}{{location}}\\
+{{/if}}
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{else}}
+\vspace{4pt}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasEducation}}
+\section*{Education}
+{{#each education}}
+\textbf{\relax{}{{degree}}\relax{}}{{#if hasField}} in {{field}}{{/if}}, {{institution}} \hfill {{dates}}\\
+{{/each}}
+{{/if}}
+
+{{#if hasProjects}}
+\section*{Key Initiatives}
+{{#each projects}}
+{{#if hasUrl}}\textbf{\relax{}{{href}}\relax{}}{{else}}\textbf{\relax{}{{name}}\relax{}}{{/if}}\\
+{{#if hasDescription}}{{description}}\\
+{{/if}}
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasSkills}}
+\section*{Core Competencies}
+{{#each skills}}{{this}}{{#unless @last}} \quad $\vert$ \quad {{/unless}}{{/each}}
+{{/if}}
+
+{{#if hasCertifications}}
+\section*{Certifications}
+{{#each certifications}}
+{{#if hasUrl}}{{href}}{{else}}{{name}}{{/if}}{{#if hasIssuer}} -- {{issuer}}{{/if}}{{#if hasDate}} ({{date}}){{/if}}\\
+{{/each}}
+{{/if}}
+
+{{#if hasLanguages}}
+\section*{Languages}
+{{#each languages}}{{name}}{{#if hasProficiency}} ({{proficiency}}){{/if}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+\end{document}

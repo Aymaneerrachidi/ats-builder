@@ -54,6 +54,17 @@ See `.env.example` for the full list. The important ones:
 | `COHERE_MODEL` | Defaults to `command-a-03-2025` |
 | `STORAGE_DIR` | Local disk path used to cache compiled PDFs (see `src/lib/storage.ts`) |
 | `LATEX_PATH` | Override if `xelatex` isn't on PATH |
+| `LATEX_SERVICE_URL` / `LATEX_SERVICE_SECRET` | Required in production on Vercel — points at the separate always-on compile service in `/latex-service`, since Vercel's serverless functions can't run `xelatex` themselves. Leave unset in local dev. |
+
+## Deploying to Vercel
+
+Vercel's Node.js serverless functions can't run `xelatex` (a XeTeX-capable
+TeX Live install is far too large to bundle into a function). PDF/tex export
+in production needs the separate compile service in **`/latex-service`**
+deployed to an always-on host (Render, by default — see
+`latex-service/README.md`) with `LATEX_SERVICE_URL` and
+`LATEX_SERVICE_SECRET` set on the main app's Vercel project. Everything else
+(auth, AI features, uploads, the dashboard) runs on Vercel normally.
 
 ## Architecture notes
 

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ats-resume-latex-service
+    runtime: node
+    plan: free
+    rootDir: latex-service
+    buildCommand: >-
+      apt-get update &&
+      apt-get install -y --no-install-recommends
+      texlive-xetex texlive-latex-extra texlive-lang-arabic texlive-fonts-recommended fontconfig &&
+      npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: COMPILE_SECRET
+        sync: false

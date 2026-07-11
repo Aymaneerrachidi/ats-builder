@@ -1,0 +1,111 @@
+\documentclass[10.5pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+{{#if hasArabic}}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Path={{fontsDir}},Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,Script=Arabic]{Amiri}
+{{/if}}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F4E5F}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.1em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+\titleformat{\section}{\bfseries\color{accent}}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+{{#if isCompressed}}
+{{compressionPreamble}}
+{{/if}}
+
+\begin{document}
+
+% Header
+{\Huge\bfseries\color{accent} \relax{}{{name}}\relax{}}\\[2pt]
+{{#if title}}{\large \relax{}{{title}}\relax{}}\\[4pt]
+{{/if}}
+{\small
+{{email}}{{#if phone}} $\cdot$ {{phone}}{{/if}}{{#if location}} $\cdot$ {{location}}{{/if}}
+{{#if hasLinks}} $\cdot$ {{#each links}}{{href}}{{#unless @last}} $\cdot$ {{/unless}}{{/each}}{{/if}}
+}
+
+\vspace{4pt}
+\noindent{\color{accent}\hrule height 0.6pt width \linewidth}
+
+{{#if hasSummary}}
+\section{Summary}
+{{summary}}
+{{/if}}
+
+{{#if hasExperience}}
+\section{Experience}
+{{#each experience}}
+\textbf{\relax{}{{position}}\relax{}} \hfill \textit{\relax{}{{dates}}\relax{}}\\
+{{company}}{{#if hasLocation}} $\cdot$ {{location}}{{/if}}\\
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{else}}
+\vspace{4pt}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasEducation}}
+\section{Education}
+{{#each education}}
+\textbf{\relax{}{{degree}}\relax{}}{{#if hasField}} in {{field}}{{/if}} \hfill \textit{\relax{}{{dates}}\relax{}}\\
+{{institution}}{{#if hasLocation}} $\cdot$ {{location}}{{/if}}{{#if hasGpa}} $\cdot$ GPA: {{gpa}}{{/if}}\\
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasProjects}}
+\section{Projects}
+{{#each projects}}
+{{#if hasUrl}}\textbf{\relax{}{{href}}\relax{}}{{else}}\textbf{\relax{}{{name}}\relax{}}{{/if}}{{#if hasTechnologies}} \hfill \textit{\relax{}{{technologies}}\relax{}}{{/if}}\\
+{{#if hasDescription}}{{description}}\\
+{{/if}}
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasSkills}}
+\section{Skills}
+{{#each skills}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+{{#if hasCertifications}}
+\section{Certifications}
+{{#each certifications}}
+{{#if hasUrl}}{{href}}{{else}}{{name}}{{/if}}{{#if hasIssuer}} $\cdot$ {{issuer}}{{/if}}{{#if hasDate}} $\cdot$ {{date}}{{/if}}\\
+{{/each}}
+{{/if}}
+
+{{#if hasLanguages}}
+\section{Languages}
+{{#each languages}}{{name}}{{#if hasProficiency}} ({{proficiency}}){{/if}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[10.5pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+{{#if hasArabic}}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Path={{fontsDir}},Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,Script=Arabic]{Amiri}
+{{/if}}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{2E7D32}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.1em, itemsep=1pt, topsep=2pt, parsep=0pt, label=\textcolor{accent}{\textbullet}}
+
+\titleformat{\section}{\bfseries\color{accent}\MakeUppercase}{}{0em}{}
+\titlespacing{\section}{0pt}{9pt}{4pt}
+
+{{#if isCompressed}}
+{{compressionPreamble}}
+{{/if}}
+
+\begin{document}
+
+% Header
+{\Large\bfseries \relax{}{{name}}\relax{}} \hfill {{email}}\\
+{{#if title}}\textcolor{accent}{\bfseries \relax{}{{title}}\relax{}}\\
+{{/if}}
+{{#if phone}}{{phone}}{{/if}}{{#if location}}{{#if phone}} $\vert$ {{/if}}{{location}}{{/if}}{{#if hasLinks}}{{#if phone}} $\vert$ {{/if}}{{#each links}}{{href}}{{#unless @last}} $\vert$ {{/unless}}{{/each}}{{/if}}
+
+\vspace{6pt}
+\hrule
+\vspace{2pt}
+
+{{#if hasSummary}}
+\section{Summary}
+{{summary}}
+{{/if}}
+
+{{#if hasSkills}}
+\section{Skills}
+{{#each skills}}\texttt{\relax{}{{this}}\relax{}}{{#unless @last}} \ {{/unless}}{{/each}}
+{{/if}}
+
+{{#if hasExperience}}
+\section{Experience}
+{{#each experience}}
+\textbf{\relax{}{{position}}\relax{}} @ \textbf{\relax{}{{company}}\relax{}} \hfill {{dates}}\\
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{else}}
+\vspace{4pt}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasProjects}}
+\section{Projects}
+{{#each projects}}
+{{#if hasUrl}}\textbf{\relax{}{{href}}\relax{}}{{else}}\textbf{\relax{}{{name}}\relax{}}{{/if}}\\
+{{#if hasTechnologies}}Stack: \texttt{\relax{}{{technologies}}\relax{}}\\
+{{/if}}
+{{#if hasDescription}}{{description}}\\
+{{/if}}
+{{#if hasBullets}}
+\begin{itemize}
+{{#each bullets}}\item {{this}}
+{{/each}}
+\end{itemize}
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasEducation}}
+\section{Education}
+{{#each education}}
+\textbf{\relax{}{{degree}}\relax{}}{{#if hasField}} in {{field}}{{/if}}, {{institution}} \hfill {{dates}}\\
+{{#if hasGpa}}GPA: {{gpa}}\\
+{{/if}}
+{{/each}}
+{{/if}}
+
+{{#if hasCertifications}}
+\section{Certifications}
+{{#each certifications}}
+{{#if hasUrl}}{{href}}{{else}}{{name}}{{/if}}{{#if hasIssuer}} -- {{issuer}}{{/if}}{{#if hasDate}} ({{date}}){{/if}}\\
+{{/each}}
+{{/if}}
+
+{{#if hasLanguages}}
+\section{Languages}
+{{#each languages}}{{name}}{{#if hasProficiency}} ({{proficiency}}){{/if}}{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}
+
+\end{document}
