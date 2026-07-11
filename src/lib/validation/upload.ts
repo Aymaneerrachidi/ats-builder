@@ -1,3 +1,7 @@
+import { UploadValidationError } from "@/lib/errors";
+
+export { UploadValidationError };
+
 export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10 MB
 
 export const ACCEPTED_RESUME_MIME_TYPES = [
@@ -6,8 +10,6 @@ export const ACCEPTED_RESUME_MIME_TYPES = [
 ] as const;
 
 export const ACCEPTED_RESUME_EXTENSIONS = [".pdf", ".docx"] as const;
-
-export class UploadValidationError extends Error {}
 
 /** Validates an uploaded resume/LinkedIn-export file before it is ever
  * parsed: size limit, MIME type, and extension must all agree. This is a

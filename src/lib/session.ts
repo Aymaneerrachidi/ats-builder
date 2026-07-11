@@ -1,13 +1,9 @@
 import { headers } from "next/headers";
 
 import { auth } from "@/lib/auth";
+import { UnauthorizedError } from "@/lib/errors";
 
-export class UnauthorizedError extends Error {
-  constructor() {
-    super("You must be signed in to do this.");
-    this.name = "UnauthorizedError";
-  }
-}
+export { UnauthorizedError };
 
 /** Resolves the current Better Auth session in a Server Component, Server
  * Action, or Route Handler. Throws UnauthorizedError if there is none. */

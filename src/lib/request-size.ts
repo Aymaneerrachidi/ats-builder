@@ -1,6 +1,8 @@
 import { NextRequest } from "next/server";
 
-export class PayloadTooLargeError extends Error {}
+import { PayloadTooLargeError } from "@/lib/errors";
+
+export { PayloadTooLargeError };
 
 const MAX_JSON_BODY_BYTES = 200 * 1024; // 200 KB — generous for resume JSON + pasted text
 

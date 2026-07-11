@@ -4,22 +4,14 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 
+import { LatexCompilationError, LatexEngineNotFoundError } from "@/lib/errors";
+
+export { LatexCompilationError, LatexEngineNotFoundError };
+
 const execFileAsync = promisify(execFile);
 
 const COMPILE_TIMEOUT_MS = 25_000;
 const MAX_ATTEMPTS = 2;
-
-export class LatexCompilationError extends Error {
-  constructor(
-    message: string,
-    public readonly log: string
-  ) {
-    super(message);
-    this.name = "LatexCompilationError";
-  }
-}
-
-export class LatexEngineNotFoundError extends Error {}
 
 export interface CompileResult {
   pdf: Buffer;

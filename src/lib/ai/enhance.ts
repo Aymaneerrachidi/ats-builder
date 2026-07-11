@@ -1,9 +1,10 @@
 import { AIConfigError, runStructuredChat } from "@/lib/ai/client";
 import { buildEnhancementPrompt, RESUME_JSON_SYSTEM_PROMPT } from "@/lib/ai/prompts";
 import type { EnhancementAction } from "@/lib/ai/schemas";
+import { AIEnhancementError } from "@/lib/errors";
 import { resumeContentSchema, type ResumeContent } from "@/lib/schema/resume";
 
-export class AIEnhancementError extends Error {}
+export { AIEnhancementError };
 
 /** Applies a single named enhancement (e.g. "improve_summary") to a resume
  * and returns the full, updated resume JSON. */

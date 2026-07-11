@@ -1,11 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import { ResumeNotFoundError } from "@/lib/errors";
 
-export class ResumeNotFoundError extends Error {
-  constructor() {
-    super("Resume not found.");
-    this.name = "ResumeNotFoundError";
-  }
-}
+export { ResumeNotFoundError };
 
 /** Fetches a resume and verifies it belongs to `userId`. Returns the same
  * "not found" error whether the resume doesn't exist or belongs to someone

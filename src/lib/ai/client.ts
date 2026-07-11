@@ -2,11 +2,14 @@ import { CohereClientV2 } from "cohere-ai";
 import type { ZodType, z } from "zod";
 
 import { toCohereJsonSchema } from "@/lib/ai/schema-utils";
+// Re-exported (not defined here) so importing these error classes for an
+// `instanceof` check — e.g. from src/lib/api-error.ts — never pulls in the
+// Cohere SDK. See src/lib/errors.ts for why this indirection exists.
+import { AIConfigError, AIResponseError } from "@/lib/errors";
+
+export { AIConfigError, AIResponseError };
 
 let cached: CohereClientV2 | null = null;
-
-export class AIConfigError extends Error {}
-export class AIResponseError extends Error {}
 
 /** Lazily constructs the Cohere client so route handlers can surface a
  * friendly "AI is not configured" error instead of a boot-time crash when

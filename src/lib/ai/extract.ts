@@ -1,8 +1,9 @@
 import { AIConfigError, runStructuredChat } from "@/lib/ai/client";
 import { buildExtractionPrompt, RESUME_JSON_SYSTEM_PROMPT } from "@/lib/ai/prompts";
+import { AIExtractionError } from "@/lib/errors";
 import { resumeContentSchema, type ResumeContent } from "@/lib/schema/resume";
 
-export class AIExtractionError extends Error {}
+export { AIExtractionError };
 
 /** Turns raw, messy source text (pasted resume, LinkedIn PDF text, manual
  * notes) into structured resume JSON via a Cohere structured-output call. */

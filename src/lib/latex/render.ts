@@ -5,7 +5,10 @@ import Handlebars from "handlebars";
 
 import { buildCompressionPreamble, type CompressionLevel } from "@/lib/latex/compression";
 import { containsArabic, escapeLatexBidi, escapeLatexUrl } from "@/lib/latex/escape";
+import { LatexTemplateError } from "@/lib/errors";
 import type { ResumeContent, ResumeTemplateId } from "@/lib/schema/resume";
+
+export { LatexTemplateError };
 
 const TEMPLATES_DIR = path.join(process.cwd(), "templates");
 // Absolute, forward-slash path so fontspec's `Path=` option resolves
@@ -13,8 +16,6 @@ const TEMPLATES_DIR = path.join(process.cwd(), "templates");
 // temp dir — see compile.ts) or OS path separator.
 const FONTS_DIR = `${path.join(process.cwd(), "fonts").replace(/\\/g, "/")}/`;
 const templateCache = new Map<string, HandlebarsTemplateDelegate>();
-
-export class LatexTemplateError extends Error {}
 
 // Use escapeLatexBidi (not plain escapeLatex) for every resume text field so
 // mixed Arabic/Latin content — an Arabic name, a bilingual summary — renders

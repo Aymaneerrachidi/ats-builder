@@ -1,6 +1,8 @@
 import { PDFParse } from "pdf-parse";
 
-export class PdfParsingError extends Error {}
+import { PdfParsingError } from "@/lib/errors";
+
+export { PdfParsingError };
 
 const PDF_MAGIC = Buffer.from("%PDF-", "ascii");
 

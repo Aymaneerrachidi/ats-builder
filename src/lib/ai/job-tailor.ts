@@ -1,9 +1,10 @@
 import { AIConfigError, runStructuredChat } from "@/lib/ai/client";
 import { buildJobTailoringPrompt, JOB_TAILORING_SYSTEM_PROMPT } from "@/lib/ai/prompts";
 import { jobTailoringResultSchema, type JobTailoringResult } from "@/lib/ai/schemas";
+import { AIJobTailoringError } from "@/lib/errors";
 import type { ResumeContent } from "@/lib/schema/resume";
 
-export class AIJobTailoringError extends Error {}
+export { AIJobTailoringError };
 
 export async function tailorResumeToJob(
   content: ResumeContent,

@@ -1,6 +1,8 @@
 import mammoth from "mammoth";
 
-export class DocxParsingError extends Error {}
+import { DocxParsingError } from "@/lib/errors";
+
+export { DocxParsingError };
 
 const ZIP_MAGIC = Buffer.from("PK", "ascii");
 

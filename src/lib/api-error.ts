@@ -1,19 +1,23 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 
-import { AIConfigError, AIResponseError } from "@/lib/ai/client";
-import { AIEnhancementError } from "@/lib/ai/enhance";
-import { AIExtractionError } from "@/lib/ai/extract";
-import { AIJobTailoringError } from "@/lib/ai/job-tailor";
-import { AIScoringError } from "@/lib/ai/ats-score";
-import { LatexCompilationError, LatexEngineNotFoundError } from "@/lib/latex/compile";
-import { LatexTemplateError } from "@/lib/latex/render";
-import { DocxParsingError } from "@/lib/parsing/docx";
-import { PdfParsingError } from "@/lib/parsing/pdf";
-import { PayloadTooLargeError } from "@/lib/request-size";
-import { ResumeNotFoundError } from "@/lib/resume-access";
-import { UnauthorizedError } from "@/lib/session";
-import { UploadValidationError } from "@/lib/validation/upload";
+import {
+  AIConfigError,
+  AIEnhancementError,
+  AIExtractionError,
+  AIJobTailoringError,
+  AIResponseError,
+  AIScoringError,
+  DocxParsingError,
+  LatexCompilationError,
+  LatexEngineNotFoundError,
+  LatexTemplateError,
+  PayloadTooLargeError,
+  PdfParsingError,
+  ResumeNotFoundError,
+  UnauthorizedError,
+  UploadValidationError,
+} from "@/lib/errors";
 
 /**
  * Maps known application errors to friendly HTTP responses. Route handlers
