@@ -20,40 +20,35 @@ this keeps the service dependency-free from the main app). `templates/` and
 change a `.tex` template, a compression preset, or the resume schema in the
 main app, copy the change here too.
 
-## Deploying to Render (no Dockerfile)
+## Deploying to Railway (no Dockerfile)
 
 1. Push this repo to GitHub (already done if you're reading this from the deployed app).
-2. In the Render dashboard: **New > Web Service**, connect this repo.
-3. Set **Root Directory** to `latex-service`.
-4. Set **Runtime** to `Node`.
-5. **Build Command**:
-   ```
-   apt-get update && apt-get install -y --no-install-recommends texlive-xetex texlive-latex-extra texlive-lang-arabic texlive-fonts-recommended fontconfig && npm install && npm run build
-   ```
-6. **Start Command**: `npm start`
-7. **Health Check Path**: `/health`
-8. Add an environment variable `COMPILE_SECRET` — generate a long random
-   value (e.g. `openssl rand -hex 32`). This is a shared secret; the main
-   app must send the same value in `LATEX_SERVICE_SECRET`.
-9. Deploy. First build will take a while (installing TeX Live packages).
-10. Once live, copy the service's `https://<name>.onrender.com` URL.
+2. In the Railway dashboard: **New Project > Deploy from GitHub repo**, pick this repo.
+3. In the new service's **Settings > Source**, set **Root Directory** to `latex-service`.
+   Railway detects it as a Node app (Nixpacks) and picks up `nixpacks.toml` in
+   that directory automatically — that's what installs TeX Live via apt before
+   `npm install && npm run build && npm start` run (auto-detected from
+   `package.json`, no need to set build/start commands manually).
+4. In **Settings > Networking**, click **Generate Domain** to get a public
+   `https://<name>.up.railway.app` URL — Railway services aren't publicly
+   reachable by default.
+5. In **Variables**, add `COMPILE_SECRET` — generate a long random value
+   (e.g. `openssl rand -hex 32`). This is a shared secret; the main app must
+   send the same value in `LATEX_SERVICE_SECRET`.
+6. Deploy. First build will take a while (installing TeX Live packages).
 
-A `render.yaml` blueprint is included with the same settings, in case Render
-picks it up automatically when you connect the repo — if it doesn't, follow
-the manual steps above.
+### Alternative: Render
 
-### Free-tier cold starts
-
-Render's free web services spin down after ~15 minutes of no traffic and
-take 30-60s to spin back up on the next request. The first PDF export after
-a period of inactivity will be slow for that reason — this is expected, not
-a bug.
+A `render.yaml` blueprint is also included if you'd rather use Render
+instead (same idea: connect repo, Root Directory `latex-service`, set
+`COMPILE_SECRET`). Render's free web services spin down after ~15 minutes
+of no traffic and take 30-60s to spin back up on the next request.
 
 ## Wiring it up to the main app
 
 In the main app's Vercel project, add:
 
-- `LATEX_SERVICE_URL` = `https://<name>.onrender.com`
+- `LATEX_SERVICE_URL` = the public URL from step 4 above
 - `LATEX_SERVICE_SECRET` = the same value as this service's `COMPILE_SECRET`
 
 Redeploy the main app. PDF/tex export routes will now call this service

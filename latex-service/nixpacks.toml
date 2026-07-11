@@ -1,0 +1,8 @@
+[phases.setup]
+aptPkgs = [
+  "texlive-xetex",
+  "texlive-latex-extra",
+  "texlive-lang-arabic",
+  "texlive-fonts-recommended",
+  "fontconfig",
+]
